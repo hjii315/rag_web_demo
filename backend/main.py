@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import settings
-from routers import collections, documents, experiments, rag, search
+from routers import collections, documents, rag
 from services.database import DB_PATH, init_db
 
 #다른 API 요청을 동시에 처리해야되니깐 비동기로
@@ -36,9 +36,7 @@ app.add_middleware(
 
 app.include_router(collections.router, prefix="/api", tags=["collections"])
 app.include_router(documents.router, prefix="/api", tags=["documents"])
-app.include_router(search.router, prefix="/api", tags=["search"])
 app.include_router(rag.router, prefix="/api", tags=["rag"])
-app.include_router(experiments.router, prefix="/api", tags=["experiments"])
 
 
 @app.get("/health")

@@ -1,18 +1,14 @@
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
-import { Database, Upload, Search, MessageSquare, FlaskConical } from "lucide-react";
+import { Database, Upload, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CollectionsPage } from "@/pages/CollectionsPage";
 import { IngestPage } from "@/pages/IngestPage";
-import { SearchPage } from "@/pages/SearchPage";
 import { RAGPage } from "@/pages/RAGPage";
-import { ExperimentsPage } from "@/pages/ExperimentsPage";
 
 const NAV = [
   { to: "/", label: "Collections", icon: Database },
   { to: "/ingest", label: "Ingest", icon: Upload },
-  { to: "/search", label: "Search", icon: Search },
   { to: "/rag", label: "RAG", icon: MessageSquare },
-  { to: "/experiments", label: "Experiments", icon: FlaskConical },
 ];
 
 function Sidebar() {
@@ -52,9 +48,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<CollectionsPage />} />
             <Route path="/ingest" element={<IngestPage />} />
-            <Route path="/search" element={<SearchPage />} />
             <Route path="/rag" element={<RAGPage />} />
-            <Route path="/experiments" element={<ExperimentsPage />} />
           </Routes>
         </main>
       </div>
